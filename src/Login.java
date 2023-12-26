@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.stream.Collectors;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
     //Constructor
     Login(){
        //setting the frame
@@ -42,6 +44,15 @@ public class Login extends JFrame {
         cancel.setBounds(40,200,120,30);
         add(cancel);
 
+ //Back Button Design
+        JButton back = new JButton("Back");
+        back.setBackground(Color.BLACK);
+        back.setForeground(Color.WHITE);
+        back.setFont(new Font("Serif", Font.PLAIN, 15));
+        back.addActionListener(this::actionPerformed);
+        back.setBounds(390,200,120,30);
+        add(back);
+
         //Adding a Image in the Layout
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/second.jpg"));
         Image i2 = i1.getImage().getScaledInstance(200,200,Image.SCALE_DEFAULT);
@@ -57,5 +68,11 @@ public class Login extends JFrame {
     public static void main(String[] args) {
         new Login();
         //Login object calling the constructor
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        setVisible(false);
+        new HotelManagement();
     }
 }

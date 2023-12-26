@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 //Implemented Action Listener Interface
 public class HotelManagement extends JFrame implements ActionListener {
 
-    HotelManagement(){
+ HotelManagement(){
  setSize(1366,565 );
  setLocation(100,100);
  ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/first.jpg"));
@@ -22,6 +22,7 @@ public class HotelManagement extends JFrame implements ActionListener {
 
   //Adding a NEXT button above Image
   JButton btn = new JButton("Next");
+  btn.addActionListener(this::actionPerformed);
   btn.setFont(new Font("Arial", Font.ITALIC, 20));
   btn.setBounds(930,450, 150,50);
   image.add(btn);
@@ -49,9 +50,9 @@ setVisible(true);
         new HotelManagement();
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
-
+    setVisible(false);
+    new Login();
     }
 }
